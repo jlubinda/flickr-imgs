@@ -11,7 +11,8 @@
         </div>
               <div class="row">
           <div class="col s12">
-            <router-view results="results"></router-view>
+            <router-view></router-view>
+            <FlickrList :results="myresults" />  
           </div>
         </div>
     </div>
@@ -23,6 +24,8 @@
 <script>
 import Header from './components/Header';
 import Footer from './components/Footer';
+import FlickrList from './components/FlickrList';
+
 import 'materialize-css';
 
 const M = require('materialize-css');
@@ -35,6 +38,7 @@ export default {
   components: {
     Header,
     Footer,
+    FlickrList,
   },
   methods:{
     myScreenHeight(){
@@ -49,10 +53,10 @@ export default {
       }
 
     },
-  data() {
+  async data() {
     return {
       searchinput: "",
-      results: []
+      myresults: await this.fetchResults()
     }
   },
     async fetchResults(){
@@ -67,18 +71,17 @@ export default {
         myinput = '';
       }
 
-      const res = await fetch('http://localhost:3000/list'+myinput)
+      
+      const response = await fetch('http://localhost:3000/list'+myinput)
 
-      const data = await res.json()
+      this.myresults = await response.json()
 
-      console.log(data)
-
-      return data
+      return this.myresults
     }
   },
   async created(){
-    this.results = await this.fetchResults()
-  },
+    this.myresults = await this.fetchResults()
+  }
 }
 
 </script>
