@@ -3,7 +3,8 @@
 describe('Display Text Test', () => {
   it('Homepage Header Text', () => {
     cy.visit('/')
-    cy.contains('.brand-logo', 'Flickr IMGs')
+    cy.contains('.brand-logo', 'flickr-imgs')
+    cy.contains('h4', 'Home')
   })
 
   it('Footer Text', () => {
@@ -33,11 +34,21 @@ describe('Search Input Test', () => {
   })
 })
 
-/*
-describe('Image Text', () => {
+
+describe('About Us Text', () => {
   it('Image Title', () => {
-    cy.visit('/')
-    cy.contains('label', 'Your Search Text Here')
+    cy.visit('/about-us')
+    cy.contains('h4', 'About Us')
+    cy.contains('p', 'Joseph Lubinda is a Data Scientist, AI & Software Engineer with over 10 year worth of experience.')
   })
 })
-*/
+
+
+describe('Contact Us Text', () => {
+  it('Image Title', () => {
+    cy.visit('/about-us')
+    cy.contains('h4', 'Contact Us')
+    cy.contains('p', 'Feel free to reach me via email')
+    cy.contains('p', 'jlubinda@obtir.com')
+  })
+})
