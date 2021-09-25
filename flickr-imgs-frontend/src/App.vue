@@ -45,11 +45,11 @@ export default {
       var height1 = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
       
       if(height1<200){
-        return   "200px"
+        return   "135px"
       }
       else
       {
-        return (height1-200)+"px";
+        return (height1-135)+"px";
       }
 
     },
@@ -85,20 +85,3 @@ export default {
 }
 
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  flex: 1 0 auto;
-}
-</style>

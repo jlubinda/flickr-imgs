@@ -15,10 +15,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-    .mynav{
-        position:relative;
-        top:-60px;
-    }
-</style>
