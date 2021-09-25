@@ -3,16 +3,9 @@
   
   <main :style="{'min-height': myScreenHeight()}" class="container white lighten-1">
     <div class="col s12 white lighten-1 ">
-      <div class="row"> 
-        <div class="col s12">
-          <input id="mysearch" type="text" class="search" v-model="searchinput" />
-          <button class="btn" @click="fetchResults()">SEARCH</button>
-        </div>
-        </div>
-              <div class="row">
+        <div class="row">
           <div class="col s12">
-            <router-view></router-view>
-            <FlickrList :results="myresults" />  
+            <router-view :results="myresults"></router-view>
           </div>
         </div>
     </div>
@@ -24,7 +17,6 @@
 <script>
 import Header from './components/Header';
 import Footer from './components/Footer';
-import FlickrList from './components/FlickrList';
 
 import 'materialize-css';
 
@@ -38,7 +30,6 @@ export default {
   components: {
     Header,
     Footer,
-    FlickrList,
   },
   methods:{
     myScreenHeight(){

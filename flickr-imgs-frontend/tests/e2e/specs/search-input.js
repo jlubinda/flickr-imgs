@@ -6,9 +6,16 @@ describe('Display Text Test', () => {
     cy.contains('.brand-logo', 'Flickr IMGs')
   })
 
-  it('Homepage Header Text', () => {
+  it('Footer Text', () => {
     cy.visit('/')
-    cy.contains('h3', 'Welcome to Flickr IMGs')
+    cy.contains('.container', '© 2021 Joseph Lubinda')
+  })
+
+  it('Nav Menu Text', () => {
+    cy.visit('/')
+    cy.contains('li', 'Home')
+    cy.contains('li', 'About Us')
+    cy.contains('li', 'Contact Us')
   })
 })
 
