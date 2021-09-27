@@ -34,19 +34,8 @@ router.get('', function(req, res, next) {
       
         // The whole response has been received. Print out the result.
         resp.on('end', () => {
-          var output = JSON.parse(data);
-		  var items = output.items;
-		  var i = 0;
-		  var item;
-		  var myarray = [];
-			for (i = 0; i <10; i++) {
-				item = items[i];
-				item['id'] = i;
-				//myarray[i] = item
-				myarray.push(item);
-			}
-		  
-          res.send(myarray);
+			var output = JSON.parse(data);
+			res.send(output.items);
         });
       
       }).on("error", (err) => {
@@ -76,18 +65,7 @@ router.get('/:tags', function(req, res, next) {
         // The whole response has been received. Print out the result.
         resp.on('end', () => {
             var output = JSON.parse(data)
-		  var items = output.items;
-		  var i = 0;
-		  var item;
-		  var myarray = [];
-			for (i = 0; i <10; i++) {
-				item = items[i];
-				item['id'] = i;
-				//myarray[i] = item
-				myarray.push(item);
-			}
-		  
-          res.send(myarray);
+			res.send(output.items);
         });
       
       }).on("error", (err) => {
