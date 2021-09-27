@@ -5,11 +5,14 @@ describe('Display Text Test', () => {
     cy.visit('/')
     cy.contains('.brand-logo', 'flickr-imgs')
     cy.contains('h4', 'Home')
+    cy.contains('a', 'Open on Flickr')
   })
+
+  let currentYear = new Date().getFullYear();
 
   it('Footer Text', () => {
     cy.visit('/')
-    cy.contains('.container', '© 2021 Joseph Lubinda')
+    cy.contains('.container', '© '+currentYear+' Joseph Lubinda')
   })
 
   it('Nav Menu Text', () => {
@@ -39,16 +42,16 @@ describe('About Us Text', () => {
   it('Image Title', () => {
     cy.visit('/about-us')
     cy.contains('h4', 'About Us')
-    cy.contains('p', 'Joseph Lubinda is a Data Scientist, AI & Software Engineer with over 10 year worth of experience.')
+    cy.contains('p', 'Joseph is a Data Scientist, AI & Software Engineer with over 10 year worth of experience.')
   })
 })
 
 
 describe('Contact Us Text', () => {
   it('Image Title', () => {
-    cy.visit('/about-us')
+    cy.visit('/contact-us')
     cy.contains('h4', 'Contact Us')
-    cy.contains('p', 'Feel free to reach me via email')
+    cy.contains('p', 'You can contact Joseph Lubinda directly by sending an email')
     cy.contains('p', 'jlubinda@obtir.com')
   })
 })

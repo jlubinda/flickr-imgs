@@ -1,11 +1,14 @@
 <template>
+    <h4>Home</h4>
     <div class="row"> 
-        <div class="col s12">
+        <div class="col s9">
             <input id="mysearch" type="text" class="search" v-model="searchinput" />
-            <button class="btn" @click="fetchResults()">SEARCH</button>
+        </div>
+        <div class="col s3">
+            <button class="btn" @click="doSearch()">SEARCH</button>
         </div>
     </div>
-    <FlickrList results="results" />  
+    <FlickrList :results="results" />  
 </template>
 
 <script>
@@ -18,6 +21,17 @@ export default {
     },
     props: {
         results: Array,
+        searchinput: String,
     },
+   data() {
+    return {
+      searchinput: ""
+    }
+  },
+    methods: {
+        doSearch(){
+            this.$emit('do-search',this.searchinput)
+        }
+    }
 }
 </script>

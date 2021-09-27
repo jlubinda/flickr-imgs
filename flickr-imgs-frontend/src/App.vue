@@ -5,7 +5,7 @@
     <div class="col s12 white lighten-1 ">
         <div class="row">
           <div class="col s12">
-            <router-view :results="myresults"></router-view>
+            <router-view @do-search="fetchResults" :results="myresults"></router-view>
           </div>
         </div>
     </div>
@@ -17,6 +17,7 @@
 <script>
 import Header from './components/Header';
 import Footer from './components/Footer';
+import axios from "axios";
 
 import 'materialize-css';
 
@@ -44,34 +45,34 @@ export default {
       }
 
     },
-  async data() {
-    return {
-      searchinput: "",
-      myresults: await this.fetchResults()
-    }
-  },
-    async fetchResults(){
-      var myinput;
-      
-      if(this.searchinput)
+    async fetchResults(myinputx=''){
+      let myinput;
+      if(myinputx)
       {
-        myinput = "/"+this.searchinput;
+        myinput = "/"+encodeURI(myinputx);
       }
       else
       {
         myinput = '';
       }
 
-      
-      const response = await fetch('http://localhost:3000/list'+myinput)
+      let url = 'http://localhost:3000/list'+myinput
+
+      console.log(url)
+
+      const response = await fetch(url)
 
       this.myresults = await response.json()
-
-      return this.myresults
     }
   },
-  async created(){
-    this.myresults = await this.fetchResults()
+   data() {
+    return {
+      searchinput: "",
+      myresults: []
+    }
+  },
+  created(){
+    this.fetchResults()
   }
 }
 
