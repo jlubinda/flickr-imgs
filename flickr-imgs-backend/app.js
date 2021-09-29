@@ -3,8 +3,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var listRouter = require('./routes/list');
+var indexRouter = require('./routes/index'); //file for root route "/"
+var listRouter = require('./routes/list'); //file for 'list' route "/list"
 
 var app = express();
 

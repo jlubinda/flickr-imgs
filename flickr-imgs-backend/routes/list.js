@@ -44,13 +44,11 @@ router.get('', function(req, res, next) {
 });
 
 
-/* GET request to Flickr. */
+/* make GET request to Flickr, with tags. */
 router.get('/:tags', function(req, res, next) {
     var mytags = req.params.tags;
 	
-	res.setHeader('Access-Control-Allow-Origin', '*');
-	
-	//res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+	res.setHeader('Access-Control-Allow-Origin', '*'); //disable blocking Cross Origin  Domain Blocking for this API.
     
     var options = 'https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tags='+mytags;
     
