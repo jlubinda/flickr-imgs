@@ -11,12 +11,12 @@
             <p><a :href="res.link" target="_new">Open on Flickr</a></p>
         </div>
         <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">{{ res.title }}<i class="material-icons right">close</i></span>
+            <span id="flickr_title" class="card-title grey-text text-darken-4">{{ res.title }}<i class="material-icons right">close</i></span>
             <span v-html="res.description"></span>
-            <p><b>Date Taken:</b> {{ res.date_taken }} </p>
-            <p><b>Date Published:</b> {{ res.published }} </p>
-            <p><b>Author:</b> {{ res.author }} </p>
-            <p><b>Tags:</b> {{ res.tags }} </p>
+            <p id="date_taken"><b>Date Taken:</b> {{ res.date_taken }} </p>
+            <p id="published"><b>Date Published:</b> {{ res.published }} </p>
+            <p id="author"><b>Author:</b> {{ res.author }} </p>
+            <p id="tags"><b>Tags:</b> {{ res.tags }} </p>
         </div>
     </div>
 </template>

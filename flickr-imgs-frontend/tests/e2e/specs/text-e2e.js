@@ -26,8 +26,11 @@ describe('Display Text Test', () => {
 describe('Search Input Test', () => {
   it('Input Text', () => {
     cy.visit('/')
-    cy.get('.search').type('cats')
+    cy.get('.search').type('cats,dogs,rats')
     cy.get('.btn').click()
+    cy.contains('div', 'cats')
+    cy.contains('div', 'dogs')
+    cy.contains('div', 'rats')
     //cy.get('.search').should('have.value','')
   })
 

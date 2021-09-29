@@ -1,7 +1,7 @@
-<template>
+<template class="grey lighten-2">
   <Header />
   
-  <main :style="{'min-height': myScreenHeight()}" class="container white lighten-1">
+  <main :style="{'min-height': myScreenHeight()}" class="container grey lighten-2">
     <div class="col s12 white lighten-1 ">
         <div class="row">
           <div class="col s12">
@@ -49,7 +49,9 @@ export default {
       let myinput;
       if(myinputx)
       {
-        myinput = "/"+encodeURI(myinputx);
+        //myinput = "/"+encodeURI(myinputx);
+        //myinput = "/"+myinputx;
+        myinput = "/"+myinputx.split(' ').join(',');
       }
       else
       {
